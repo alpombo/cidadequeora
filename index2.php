@@ -55,11 +55,11 @@ $db = mysql_select_db("$database_config")
 		while($res_boas_vindas=mysql_fetch_array($boas_vindas)) {
 			$nome = $res_boas_vindas[0];
 			$email = $res_boas_vindas[1];
+			
+		}
+	}
 ?>
-<?php
-}
-}    
- ?>   
+   
       <h2>Seja bem Vindo <?php echo $nome; ?>, hoje é dia <?php echo date('d/m/Y'); ?></h2>
       <p><strong>Projeto cidade que ora. </strong><br />
         Faça a reserva do seu cep abaixo: </p>
@@ -70,6 +70,7 @@ $query = mysql_query("SELECT DISTINCT bairro FROM rj ORDER BY bairro ASC");
 ?>      
  <form name="produto" method="post" action="">
  <label for="">Selecione o bairro: </label>
+ 
  <select>
  <option>Selecione...</option>
  
@@ -77,7 +78,10 @@ $query = mysql_query("SELECT DISTINCT bairro FROM rj ORDER BY bairro ASC");
  <option value="<?php echo $bairro['bairro'] ?>"><?php echo $bairro['bairro'] ?></option>
  <?php } ?>
  
- </select>    
+ </select> 
+ 
+ 
+ </form>   
     </div>
     <div class="right">
       <h2>Sobre Nós</h2>
