@@ -18,6 +18,7 @@ ini_set('display_errors', '1');
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="style.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
     </head>
     <body>
         <div class="main">
@@ -72,7 +73,7 @@ ini_set('display_errors', '1');
                     <form name="produto" method="post" action="">
                         <label for="">Selecione o bairro: </label>
 
-                        <select>
+                        <select name="bairro">
                             <option>Selecione...</option>
 ,
                             <?php while ($bairro = mysql_fetch_array($query)) { ?>
@@ -80,18 +81,8 @@ ini_set('display_errors', '1');
                             <?php } ?>
 
                         </select>
-                        <!--###########################################-->
-                        <?php
-                        $query = mysql_query("SELECT id, cep, tp_logradouro, logradouro FROM rj WHERE bairro='".$bairro."'")
-                                
-                        ?>
-                        <br /><br />
-                        <?php while ($cep = mysql_fetch_array($query)) { ?>
-
-                            <input type="radio" name="cep" value=<?php echo $cep['cep']?> />
-                            <br/>
-                        <?php } ?>
-                        <!--###########################################-->
+                        <p id="abc"></p>
+                        
 
                     </form>   
                 </div>
