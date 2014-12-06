@@ -7,6 +7,7 @@
                   {tipo:$(this).val()},
                   // Carregamos o resultado acima para o campo cep
                   function(valor){
+                     $('#abc').empty();
                      $('#abc').append(valor);
                   });
          });
