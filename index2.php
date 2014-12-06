@@ -66,33 +66,18 @@ $db = mysql_select_db("$database_config")
       <p>&nbsp;</p>
 <?php
 
-$query = mysql_query("SELECT DISTINCT bairro FROM rj");     
+$query = mysql_query("SELECT DISTINCT bairro FROM rj ORDER BY bairro ASC");     
 ?>      
-      <form name="produto" method="post" action="">
+ <form name="produto" method="post" action="">
  <label for="">Selecione o bairro: </label>
  <select>
  <option>Selecione...</option>
  
  <?php while($bairro = mysql_fetch_array($query)) { ?>
- <option value="<?php echo $bairro['id_bairro'] ?>"><?php echo $bairro['bairro'] ?></option>
+ <option value="<?php echo $bairro['bairro'] ?>"><?php echo $bairro['bairro'] ?></option>
  <?php } ?>
  
- </select>
-=======
-$query = mysql_query("SELECT DISTINCT bairro FROM rj");     
-?>      
-<form name="produto" method="post" action="">
-    <label for="">Selecione o bairro: </label>
-    <select>
-        <option>Selecione...</option>
-
-        <?php while($bairro = mysql_fetch_array($query)) { ?>
-            <option value="<?php echo $bairro['bairro'] ?>"><?php echo $bairro['bairro'] ?></option>
-        <?php } ?>
-
-     </select>
->>>>>>> origin/master
-</form>
+ </select>    
     </div>
     <div class="right">
       <h2>Sobre Nós</h2>
