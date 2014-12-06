@@ -65,6 +65,7 @@ $db = mysql_select_db("$database_config")
         Faça a reserva do seu cep abaixo: </p>
       <p>&nbsp;</p>
 <?php
+<<<<<<< HEAD
 $query = mysql_query("SELECT bairro FROM rj");     
 ?>      
       <form name="produto" method="post" action="">
@@ -77,6 +78,20 @@ $query = mysql_query("SELECT bairro FROM rj");
  <?php } ?>
  
  </select>
+=======
+$query = mysql_query("SELECT DISTINCT bairro FROM rj");     
+?>      
+<form name="produto" method="post" action="">
+    <label for="">Selecione o bairro: </label>
+    <select>
+        <option>Selecione...</option>
+
+        <?php while($bairro = mysql_fetch_array($query)) { ?>
+            <option value="<?php echo $bairro['bairro'] ?>"><?php echo $bairro['bairro'] ?></option>
+        <?php } ?>
+
+     </select>
+>>>>>>> origin/master
 </form>
     </div>
     <div class="right">
