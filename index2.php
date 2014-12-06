@@ -79,7 +79,8 @@ $query = mysql_query("SELECT DISTINCT bairro FROM rj ORDER BY bairro ASC");
  <?php } ?>
  
  </select> 
- 
+ <br /><br />
+ <input type="radio" name="cep" value="cep" />[Nº CEP] [Nome da Rua] 
  
  </form>   
     </div>
