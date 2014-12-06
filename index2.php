@@ -74,14 +74,24 @@ ini_set('display_errors', '1');
 
                         <select>
                             <option>Selecione...</option>
-
+,
                             <?php while ($bairro = mysql_fetch_array($query)) { ?>
                                 <option value="<?php echo $bairro['bairro'] ?>"><?php echo $bairro['bairro'] ?></option>
                             <?php } ?>
 
-                        </select> 
+                        </select>
+                        <!--###########################################-->
+                        <?php
+                        $query = mysql_query("SELECT id, cep, tp_logradouro, logradouro FROM rj WHERE bairro='".$bairro."'")
+                                
+                        ?>
                         <br /><br />
-                        <input type="radio" name="cep" value="cep" />[Nº CEP] [Nome da Rua] 
+                        <?php while ($cep = mysql_fetch_array($query)) { ?>
+
+                            <input type="radio" name="cep" value=<?php echo $cep['cep']?> />
+                            <br/>
+                        <?php } ?>
+                        <!--###########################################-->
 
                     </form>   
                 </div>
