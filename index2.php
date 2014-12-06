@@ -70,7 +70,7 @@ ini_set('display_errors', '1');
                     <?php
                     $query = mysql_query("SELECT DISTINCT bairro FROM rj ORDER BY bairro ASC");
                     ?>      
-                    <form name="produto" method="post" action="">
+                    <form name="produto" method="post" action="update-rj.php">
                         <label for="">Selecione o bairro: </label>
 
                         <select name="bairro">
@@ -83,7 +83,7 @@ ini_set('display_errors', '1');
                         </select>
                         <p id="abc"></p>
                         
-
+                        <input type="submit" value="enviar"/>
                     </form>   
                 </div>
                 <div class="right">
