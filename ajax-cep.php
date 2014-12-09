@@ -11,6 +11,7 @@
     while ($cep = mysql_fetch_array($query)) {
 
         echo '<input type="checkbox" name="cep[]" value="'.$cep['id'].'" />'.$cep['cep'].' - '.$cep['tp_logradouro']. ' - '.$cep['logradouro']. '<br/>';
-    } 
+    }
+//    mysql_close($conexao);
 
 

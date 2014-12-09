@@ -51,7 +51,7 @@ ini_set('display_errors', '1');
                 <div class="left">
 
                     <?php
-                    $boas_vindas = mysql_query("SELECT nome, email FROM cadastro")
+                    $boas_vindas = mysql_query("SELECT nome, email, id FROM cadastro")
                             or die(mysql_error());
                     if (@mysql_num_rows($boas_vindas) <= '0')
                         echo 'Erro ao selecionar usuário';
@@ -59,6 +59,7 @@ ini_set('display_errors', '1');
                         while ($res_boas_vindas = mysql_fetch_array($boas_vindas)) {
                             $nome = $res_boas_vindas[0];
                             $email = $res_boas_vindas[1];
+                            $id = $res_boas_vindas[2];
                         }
                     }
                     ?>
@@ -71,6 +72,8 @@ ini_set('display_errors', '1');
                     $query = mysql_query("SELECT DISTINCT bairro FROM rj ORDER BY bairro ASC");
                     ?>      
                     <form name="produto" method="post" action="update-rj.php">
+                        <label for="">Id: </label>
+                        <input type="number" name="id" value="<?php echo $id?>" readonly><br>
                         <label for="">Selecione o bairro: </label>
 
                         <select name="bairro">
