@@ -1,46 +1,34 @@
 <?php
-    ini_set('display_errors', '1');  
+    ini_set('error_reporting', E_ALL);
+    ini_set('display_errors', 1);  
     include_once ("Connections/config.php");
-//    $conexao = mysqli_connect("$hostname_config", "$username_config", "$password_config")
-//                or die(mysql_error());
-    $db = mysql_select_db("$database_config")
-                or die(mysql_error());
+    $conexao = mysqli_connect("$hostname_config", "$username_config", "$password_config", "$database_config");
+    //logando erros
+    if(!$conexao){
+        print_r(mysqli_error($conexao));
+    }
+    
+    if (mysqli_connect_errno()) {
+        printf("Connect failed: %s\n", mysqli_connect_error());
+        exit();
+    }
+    print_r("Status da conexao:". mysqli_connect_errno());
+    //variaveis de post
     $cep = $_POST['cep'];
     $id = $_POST['id'];
+    print_r($cep);
+    
     for ($index = 0; $index < count($cep); $index++) {
-        $sql = "UPDATE usuario_cep SET id_usuario=$id, id_cep=$cep[$index]";
-        $query = mysql_query($sql ) or die(mysql_error());
-        print_r($query);
+        echo '<br>';
+        print_r($cep[$index]);
+        echo '<br>';
+        
+        $sql = "INSERT INTO usuario_cep(id_usuario, id_cep) VALUES($id, $cep[$index])";
+        echo '<br>';
+        print_r($sql);
+        echo '<br>';
+        $query = mysqli_query($conexao, $sql);
+        print_r(mysqli_errno($conexao));
                 
     }
-////    mysql_close($conexao);
-//include_once ("Connections/config.php");
-//ini_set('display_errors', '1');
-//function update_rj($sql){
-//        
-//        $conexao = mysqli_connect("localhost", "root", "azx", "cidadequeora")
-//                or die(mysqli_error($conexao));
-////        $db = mysql_select_db("$database_config")
-////                or die(mysql_error());
-//        
-//        $query = $conexao->query($sql ) or die(mysqli_error($conexao));
-//        $conexao->close();
-//        return $query;
-//           
-//    }
-//    
-//    $cep = $_POST['cep'];
-//    $id = $_POST['id'];
-//    for ($index = 0; $index < count($cep); $index++) {
-//        $sql = "UPDATE usuario_cep SET id_usuario=$id, id_cep=$cep[$index]";
-//        $result = update_rj($sql);
-//                
-//        echo $result;
-//        echo '\n';
-//        echo $id;
-//        echo '\n';
-//        echo $hostname_config;
-//        echo $cep[$index];
-//        echo '\n';
-//        
-//    }
+    
