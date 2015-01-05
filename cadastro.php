@@ -14,7 +14,7 @@ $db = mysql_select_db("$database_config")
 ?>
 
 <title>Cidade que Ora</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery.js"></script>
 </head>
