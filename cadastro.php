@@ -75,7 +75,7 @@ if(isset($_POST['cadastro']) && $_POST['cadastro'] == 'ok') {
 	if(@mysql_num_rows($verificar_usuario) >= '1'){
 		echo "Cadastro não pode ser realizado, pois, o e-mail já se encontra em nossos sistemas";
 	}else {
-		$cadastra_usuario = mysql_query("INSERT INTO cadastro (nome, email, endereco, numero, complemento, bairro, cidade, estado, documento, igreja, login, senha) VALUES('$nome','$email','$endereco','$numero','$complemento','$bairro','$cidade', '$estado','$documento','$igreja','$login','$senha')") or die(mysql_error());
+		$cadastra_usuario = mysql_query("INSERT INTO cadastro (nome, email, endereco, numero, complemento, bairro, cidade, estado, documento, igreja, usuario, senha) VALUES('$nome','$email','$endereco','$numero','$complemento','$bairro','$cidade', '$estado','$documento','$igreja','$login','$senha')") or die(mysql_error());
 		if($cadastra_usuario >= '1') {
 			echo "Usuário cadastrado com sucesso!";
 		}else {
