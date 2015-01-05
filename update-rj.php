@@ -12,23 +12,18 @@
         printf("Connect failed: %s\n", mysqli_connect_error());
         exit();
     }
-    print_r("Status da conexao:". mysqli_connect_errno());
     //variaveis de post
     $cep = $_POST['cep'];
     $id = $_POST['id'];
-    print_r($cep);
     
     for ($index = 0; $index < count($cep); $index++) {
-        echo '<br>';
-        print_r($cep[$index]);
-        echo '<br>';
         
         $sql = "INSERT INTO usuario_cep(id_usuario, id_cep) VALUES($id, $cep[$index])";
-        echo '<br>';
-        print_r($sql);
-        echo '<br>';
         $query = mysqli_query($conexao, $sql);
-        print_r(mysqli_errno($conexao));
                 
     }
-    
+    if(!mysqli_errno($conexao)){
+        echo '<h1> Cep(s) cadastrado(s) com sucesso! </h1>';
+    }else{
+        echo '<h1> Problema ao cadastrar o(s) Cep(s)! </h1>';
+    }
