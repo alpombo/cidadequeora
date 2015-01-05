@@ -17,7 +17,7 @@ ini_set('display_errors', '1');
         ?>
 
         <title>Cidade que Ora</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <link href="style.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/utils.js"></script>
@@ -28,7 +28,7 @@ ini_set('display_errors', '1');
                 <div class="block_header">
                     <div class="logo"><a href="index.html"><img src="images/logo.gif" width="222" height="99" border="0" alt="logo" /></a></div>
                     <div class="header_click">
-                        Entre em contato através
+                        Entre em contato atrav&eacute;s
                         <br />
                         do nosso telefone <a href="#">24.2237-2525 </a></div>
                     <div class="menu">
@@ -58,7 +58,7 @@ ini_set('display_errors', '1');
                     $boas_vindas = mysql_query("SELECT id, nome, email  FROM cadastro WHERE usuario = '$usuario'")
                             or die(mysql_error());
                     if (@mysql_num_rows($boas_vindas) <= '0')
-                        echo 'Erro ao selecionar usuário';
+                        echo 'Erro ao selecionar usu�rio';
                     else {
                         while ($res_boas_vindas = mysql_fetch_array($boas_vindas)) {
                             $id = $res_boas_vindas[0];
@@ -71,9 +71,9 @@ ini_set('display_errors', '1');
                     }
                     ?>
 
-                    <h2>Seja bem Vindo <?php echo $nome; ?>, hoje é dia <?php echo date('d/m/Y'); ?></h2>
+                    <h2>Seja bem Vindo <?php echo $nome; ?>, hoje &eacute; dia <?php echo date('d/m/Y'); ?></h2>
                     <p style="font-size:14px;"><strong>Projeto cidade que ora. </strong><br />
-                        Faça a reserva do seu cep abaixo: </p>
+                        Fa&ccedil;a a reserva do seu cep abaixo: </p>
                     <p>&nbsp;</p>
                     <?php
                     $query = mysql_query("SELECT DISTINCT bairro FROM rj ORDER BY bairro ASC");
@@ -83,8 +83,8 @@ ini_set('display_errors', '1');
                          
                     <form name="produto" method="post" action="update-rj.php" enctype="multipart/form-data" id="contactform">
                         
-                        <!--<label for="">Id: </label>
-                        <input type="number" name="id" value="<?php echo $id?>" readonly><br>-->
+                        <!--<label for="">Id: </label>-->
+                        <input type="hidden" name="id" value="<?php echo $id?>" readonly><br>
                         <label for="">Selecione o bairro: </label>
 
                         <select name="bairro">
@@ -101,10 +101,10 @@ ini_set('display_errors', '1');
                     </form>   
                 </div>
                 <div class="right">
-                    <h2>Sobre Nós</h2>
-                    <p>O Projeto Cidade que Ora pretende entregar em cada casa de nossa cidade um exemplar do livro “Como desenvolver uma vida poderosa de oração”.</p>
-                    <p>São R$ 3,50 para cada livro (ou R$ 4,00 com o serviço de entrega). Para reservar a sua rua, cep ou condomínio é necessário adiantar R$ 1,00 por livro. O restante será pago uma semana antes do dia da entrega simultânea, o que será decidido em assembleia dos “adotantes”, quando toda a cidade estiver mapeada.</p>
-                    <p>A SIB em Petrópolis doou o correspondente a 1.000 livros para iniciar a Campanha, deixando com a coordenação do Projeto a escolha de quais casas receberão esses livros.</p>
+                    <h2>Sobre N&oacute;s</h2>
+                    <p>O Projeto Cidade que Ora pretende entregar em cada casa de nossa cidade um exemplar do livro &ldquo;Como desenvolver uma vida poderosa de ora&ccedil;&atilde;o&rdquo;.</p>
+                    <p>S&atilde;o R$ 3,50 para cada livro (ou R$ 4,00 com o servi&ccedil;o de entrega). Para reservar a sua rua, cep ou condom&iacute;nio &eacute; necess&aacute;rio adiantar R$ 1,00 por livro. O restante ser&aacute; pago uma semana antes do dia da entrega simult&acirc;nea, o que ser&aacute; decidido em assembleia dos &ldquo;adotantes&rdquo;, quando toda a cidade estiver mapeada.</p>
+                    <p>A SIB em Petr&oacute;polis doou o correspondente a 1.000 livros para iniciar a Campanha, deixando com a coordena&ccedil;&atilde;o do Projeto a escolha de quais casas receber&atilde;o esses livros.</p>
                     <p><strong>Sobre o livro</strong><br />
                         Este livro do Dr. Gregory Frizzell tem sido um instrumento para revolucionar a vida devocional de milhares de crentes. </p>
                     <img src="images/livro.jpg" alt="picture" width="270" height="404" /></div>
@@ -114,9 +114,9 @@ ini_set('display_errors', '1');
         </div>
         <div class="footer">
             <div class="footer_resize">
-                <p class="leftt">© Copyright Cidade que Ora. Todos os direitos reservados<br />
+                <p class="leftt">� Copyright Cidade que Ora. Todos os direitos reservados<br />
                     <a href="#">Home</a> | <a href="#">Contato</a></p>
-                <p class="rightt">Desenvolvido por <a href="http://www.insidesolucoes.com.br"><strong>Inside Soluções Interativas</strong></a></p>
+                <p class="rightt">Desenvolvido por <a href="http://www.insidesolucoes.com.br"><strong>Inside Solu&ccedil;&otilde;es Interativas</strong></a></p>
                 <div class="clr"></div>
             </div>
         </div>
