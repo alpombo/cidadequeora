@@ -1,3 +1,5 @@
+<?php include_once("restrict_no.php");?>
+
 <?php
 ini_set('display_errors', '1');
 ?>
@@ -34,6 +36,7 @@ ini_set('display_errors', '1');
                             <li><a href="index.php"><span>Home</span></a></li>
                             <li><a href="#"><span> Minha Conta</span></a></li>
                             <li><a href="#"><span> Contato </span></a></li>
+                            <li><a href="logof.php"><span> Sair </span></a></li>
                         </ul>
                     </div>
                     <div class="clr"></div>
@@ -51,15 +54,19 @@ ini_set('display_errors', '1');
                 <div class="left">
 
                     <?php
-                    $boas_vindas = mysql_query("SELECT nome, email, id FROM cadastro")
+					$usuario = $_SESSION['MM_Username'];			
+                    $boas_vindas = mysql_query("SELECT id, nome, email  FROM cadastro WHERE usuario = '$usuario'")
                             or die(mysql_error());
                     if (@mysql_num_rows($boas_vindas) <= '0')
                         echo 'Erro ao selecionar usuário';
                     else {
                         while ($res_boas_vindas = mysql_fetch_array($boas_vindas)) {
-                            $nome = $res_boas_vindas[0];
-                            $email = $res_boas_vindas[1];
-                            $id = $res_boas_vindas[2];
+                            $id = $res_boas_vindas[0];
+							$nome = $res_boas_vindas[1];
+                            $email = $res_boas_vindas[2];
+							
+					?>
+                    <?php        
                         }
                     }
                     ?>
@@ -71,7 +78,8 @@ ini_set('display_errors', '1');
                     <?php
                     $query = mysql_query("SELECT DISTINCT bairro FROM rj ORDER BY bairro ASC");
                     ?>      
-                    <form name="produto" method="post" action="update-rj.php">
+                    <form name="produto" method="post" action="update-rj.php" enctype="multipart/form-data">
+                        
                         <label for="">Id: </label>
                         <input type="number" name="id" value="<?php echo $id?>" readonly><br>
                         <label for="">Selecione o bairro: </label>
@@ -85,7 +93,7 @@ ini_set('display_errors', '1');
 
                         </select>
                         <p id="abc"></p>
-                        
+                        <input type="hidden" name="cadastro" value="ok" />
                         <input type="submit" value="enviar"/>
                     </form>   
                 </div>

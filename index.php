@@ -49,19 +49,20 @@ if (isset($_GET['accesscheck'])) {
 if (isset($_POST['usuario'])) {
   $loginUsername=$_POST['usuario'];
   $password=$_POST['senha'];
+  $MM_fldUserAuthorization = "nivel";
   $MM_redirectLoginSuccess = "index2.php";
   $MM_redirectLoginFailed = "index.php";
   $MM_redirecttoReferrer = false;
   mysql_select_db($database_config, $config);
   	
-  $LoginRS__query=sprintf("SELECT login, senha FROM cadastro WHERE login=%s AND senha=%s",
+  $LoginRS__query=sprintf("SELECT usuario, senha, nivel FROM cadastro WHERE usuario=%s AND senha=%s",
   GetSQLValueString($loginUsername, "text"), GetSQLValueString($password, "text")); 
    
   $LoginRS = mysql_query($LoginRS__query, $config) or die(mysql_error());
   $loginFoundUser = mysql_num_rows($LoginRS);
   if ($loginFoundUser) {
     
-    $loginStrGroup  = mysql_result($LoginRS,0);
+    $loginStrGroup  = mysql_result($LoginRS,0,'nivel');
     
 	if (PHP_VERSION >= 5.1) {session_regenerate_id(true);} else {session_regenerate_id();}
     //declare two session variables and assign them
