@@ -72,16 +72,19 @@ ini_set('display_errors', '1');
                     ?>
 
                     <h2>Seja bem Vindo <?php echo $nome; ?>, hoje é dia <?php echo date('d/m/Y'); ?></h2>
-                    <p><strong>Projeto cidade que ora. </strong><br />
+                    <p style="font-size:14px;"><strong>Projeto cidade que ora. </strong><br />
                         Faça a reserva do seu cep abaixo: </p>
                     <p>&nbsp;</p>
                     <?php
                     $query = mysql_query("SELECT DISTINCT bairro FROM rj ORDER BY bairro ASC");
-                    ?>      
-                    <form name="produto" method="post" action="update-rj.php" enctype="multipart/form-data">
+                    ?> 
+                    
+                    
+                         
+                    <form name="produto" method="post" action="update-rj.php" enctype="multipart/form-data" id="contactform">
                         
-                        <label for="">Id: </label>
-                        <input type="number" name="id" value="<?php echo $id?>" readonly><br>
+                        <!--<label for="">Id: </label>
+                        <input type="number" name="id" value="<?php echo $id?>" readonly><br>-->
                         <label for="">Selecione o bairro: </label>
 
                         <select name="bairro">
